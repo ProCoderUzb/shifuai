@@ -1,0 +1,26 @@
+# Environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific
+db.sqlite3
+db.sqlite3-journal
+media/
+static/
+
+# If you want to ignore migrations (not recommended for teams, but okay for solo hobby projects):
+migrations/
+# Better way: ignore only the cache in migrations
+**/migrations/__pycache__/
+
+# OS specific
+.DS_Store
+Thumbs.db

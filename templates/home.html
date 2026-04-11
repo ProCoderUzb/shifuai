@@ -1,0 +1,157 @@
+{% load markdown_extras %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFU AI</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        padding-top: 20px;
+        padding-left: 20%;
+    }
+
+    .main_box {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1) !important;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 75%;
+        height: 90vh;
+        border-radius: 15px;
+    }
+    
+    .menu {
+        border-radius: 15px 15px 0 0;
+        padding: 25px;
+        width: 100%;
+        height: 8%;
+        background-color: rgba(0, 0, 0);
+        color: #fff;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+
+    .menu a {
+        text-decoration: none;
+        display: block;
+        text-align: none;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 6px 10px;
+        border-radius: 10px;
+    }
+
+    .message_box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+        overflow-y: auto;
+        background: #fdfcfb;
+    }
+
+    .message {
+        max-width: 80%;
+        padding: 12px 18px;
+        font-size: 14px;
+        line-height: 1.6;
+        position: relative;
+    }
+
+    .message.model {
+        align-self: flex-start;
+        background: #ffffff;
+        color: #1c1917;
+        border: 1px solid #e7e4df;
+        border-radius: 4px 14px 14px 14px;
+    }
+
+    .message.user {
+        align-self: flex-end;
+        background: #5e9cfa;
+        color: #ffffff;
+        border: none;
+        border-radius: 14px 4px 14px 14px;
+    }
+
+    .message p {
+        margin: 0;
+        word-wrap: break-word;
+    }
+    
+    .input_box {
+        height: 10%;
+        width: 100%;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+    .input_box input {
+        width: 780px !important;
+        padding: 10px;
+        border-radius: 10px 0 0 10px;
+        border: 1px solid rgba(0, 0, 0, 0.7);
+    }
+
+    .input_box button {
+        width: 80px !important;
+        padding: 10px;
+        border-radius: 0 10px 10px 0;
+        border: 1px solid rgba(0, 0, 0, 0.7);
+    }
+</style>
+<body>
+    <div class="main_box">
+        <div class="menu">
+            <h4>SHIFU AI</h4>
+            <a href="{% url 'clear_chat' %}" class="clear">clear</a>
+        </div>
+        <div class="message_box">
+            {% for message in messages %}
+                <div class="message {{ message.role }}">
+                    <p>{{ message.text }}</p>
+                </div>
+            {% empty %}
+                <h3 style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    There is no message yet
+                </h3>
+            {% endfor %}
+        </div>
+        <div class="input_box">
+            <form action="." method="post">
+                {% csrf_token %}
+                <input autocomplete="off" type="text" name="user_message" id="user_message">
+                <button type="submit">
+                    send
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        const messageBox = document.querySelector('.message_box')
+        if (messageBox) {
+            messageBox.scrollTop = messageBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
