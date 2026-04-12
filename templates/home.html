@@ -127,7 +127,7 @@
         <div class="message_box">
             {% for message in messages %}
                 <div class="message {{ message.role }}">
-                    <p>{{ message.text }}</p>
+                    <p>{{ message.text|linebreaksbr|markdown|safe }}</p>
                 </div>
             {% empty %}
                 <h3 style="display: flex; justify-content: center; align-items: center; width: 100%;">

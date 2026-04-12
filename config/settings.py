@@ -29,14 +29,7 @@ API_KEY = os.getenv('API_KEY')
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG') == 'True'
 
-<<<<<<< HEAD
-# ALLOWED_HOSTS = ["shifu.educationpro.uz"]
-ALLOWED_HOSTS = ["*"]
-=======
-#ALLOWED_HOSTS = ["shifu.educationpro.uz"]
 ALLOWED_HOSTS = ['shifuai.onrender.com', '.onrender.com', 'localhost', '127.0.0.1']
-#ALLOWED_HOSTS = ["*"]
->>>>>>> df7788b2f6d1ff248641dd3e31e2b5e4ef9ef41e
 
 
 # Application definition
