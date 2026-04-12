@@ -3,12 +3,18 @@ from .my_request import process_chat_message
 from .models import ChatMessage, NUser as User
 
 def home(request):
+    # Ensure a session exists and has a key
     if not request.session.session_key:
-        request.session.create()
+        request.session.save() 
+    
     session_id = request.session.session_key
+    # Emergency safety check
+    if not session_id:
+        return render(request, "home.html", {"error": "Cookies are required."})
+
     try:
         user = User.objects.get(session_id=session_id)
-    except:
+    except User.DoesNotExist:
         user = User.objects.create(session_id=session_id)
     messages = ChatMessage.objects.filter(user=user)
 

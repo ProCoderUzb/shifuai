@@ -29,8 +29,8 @@ API_KEY = os.getenv('API_KEY')
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG') == 'True'
 
-# ALLOWED_HOSTS = ["shifu.educationpro.uz"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["shifu.educationpro.uz"]
+#ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
