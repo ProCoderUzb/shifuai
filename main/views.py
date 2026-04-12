@@ -8,7 +8,6 @@ def home(request):
         request.session.save() 
     
     session_id = request.session.session_key
-    # Emergency safety check
     if not session_id:
         return render(request, "home.html", {"error": "Cookies are required."})
 
