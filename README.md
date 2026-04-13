@@ -27,19 +27,20 @@ Check out the live project here: [https://shifuai.onrender.com/](https://shifuai
 ## ⚙️ Installation & Local Setup
 
 1. **Clone the repository:**
+
 ```bash
 git clone -b first [https://github.com/ProCoderUzb/shifuai.git](https://github.com/ProCoderUzb/shifuai.git)
 cd shifuai
 
 2. **Create a virtual environment**:
 
-```bash
+
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 3. Install dependencies:
 
-```bash
+
 pip install -r requirements.txt
 
 4. Create a .env file in the root to store API key:
@@ -51,7 +52,7 @@ DEBUG=True
 
 5. Run migrations:
 
-```bash
+
 python manage.py makemigrations main
 python manage.py migrate
 python manage.py collectstatic --noinput
@@ -59,6 +60,6 @@ python manage.py collectstatic --noinput
 
 6. Run the server
 
-```bash
+
 python manage.py migrate
 python manage.py runserver
