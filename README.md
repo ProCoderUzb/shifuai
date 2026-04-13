@@ -50,7 +50,7 @@ pip install -r requirements.txt
 
 ```bash
 SECRET_KEY=your_django_secret_key
-GEMINI_API_KEY=your_google_api_key
+API_KEY=your_google_api_key
 DEBUG=True
 ```
 
