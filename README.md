@@ -1,4 +1,4 @@
-# Shifu AI - Intelligent Chat Assistant
+# Shifu AI - AI assistant
 
 Shifu AI is a stateful web-based chat application built for the **Private AI System** case study. It leverages the **Gemini 3.1 Flash Lite** model to provide real-time AI assistance while maintaining conversation context through a custom Django session-based architecture.
 
@@ -9,7 +9,7 @@ Check out the live project here: [https://shifuai.onrender.com/](https://shifuai
 
 ## 🛠️ Tech Stack
 - **Backend:** Django (Python)
-- **Frontend:** Vanilla HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS, JavaScript
 - **AI Model:** Google Gemini 3.1 Flash Lite
 - **Deployment:** Render (Web Services)
 - **Database:** SQLite (Production-ready via Django Sessions)
@@ -27,28 +27,38 @@ Check out the live project here: [https://shifuai.onrender.com/](https://shifuai
 ## ⚙️ Installation & Local Setup
 
 1. **Clone the repository:**
-   ```bash
-   git clone -b first [https://github.com/ProCoderUzb/shifuai.git](https://github.com/ProCoderUzb/shifuai.git)
-   cd shifuai
+```bash
+git clone -b first [https://github.com/ProCoderUzb/shifuai.git](https://github.com/ProCoderUzb/shifuai.git)
+cd shifuai
 
-Create a virtual environment:
+2. **Create a virtual environment**:
 
-Bash
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies:
 
-Bash
+3. Install dependencies:
+
+```bash
 pip install -r requirements.txt
-Environment Variables:
-Create a .env file in the root directory:
+
+4. Create a .env file in the root to store API key:
 
 Code snippet
 SECRET_KEY=your_django_secret_key
 GEMINI_API_KEY=your_google_api_key
 DEBUG=True
-Run migrations & start server:
 
-Bash
+5. Run migrations:
+
+```bash
+python manage.py makemigrations main
+python manage.py migrate
+python manage.py collectstatic --noinput
+
+
+6. Run the server
+
+```bash
 python manage.py migrate
 python manage.py runserver
