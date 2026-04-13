@@ -49,7 +49,6 @@ pip install -r requirements.txt
 4. Create a .env file in the root to store API key:
 
 ```bash
-Code snippet
 SECRET_KEY=your_django_secret_key
 GEMINI_API_KEY=your_google_api_key
 DEBUG=True
